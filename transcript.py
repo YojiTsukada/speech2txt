@@ -15,7 +15,7 @@ file_name = os.path.join(
     'data',
     'english_mono.flac')
 
-print(file_name)
+#print(file_name)
 
 # Loads the audio into memory
 with io.open(file_name, 'rb') as audio_file:
