@@ -1,0 +1,8 @@
+{
+"config": {
+  "language_code": "en-US"
+  },
+"audio":{
+  "uri":"gs://backet20171122/english_mono.flac"
+  }
+}

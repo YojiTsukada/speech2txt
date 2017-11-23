@@ -1,0 +1,11 @@
+{
+  "config": {
+      "encoding":"flac",
+      "sampleRateHertz": 16000,
+      "languageCode": "en-US",
+      "enableWordTimeOffsets": false
+  },
+  "audio": {
+    "uri":"gs://backet20171122/english_mono.flac"
+  }
+}
