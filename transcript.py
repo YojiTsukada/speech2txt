@@ -29,10 +29,22 @@ config = types.RecognitionConfig(
 
 # Detects speech in the audio file
 response = client.recognize(config, audio)
-alternatives = response.results[0].alternatives
 
-count = len(response.results)
 
-for alternative in alternatives:
-    print('Transcript: {}'.format(alternative.transcript))
-    print('Confidence: {}'.format(alternative.confidence))
+
+for result in response.results:
+    print('Transcript: {}'.format(result.alternatives[0].transcript))
+    print('Confidence: {}'.format(result.alternatives[0].confidence))
+    print("")
+
+
+# Show the transcript and confidence
+#for i in range(len(response.results)):
+#    alternative = response.results[i].alternatives
+#    print(format(alternative.transcript))
+#    print(format(alternative.confidence))
+#    print("")
+
+#    for alternative in alternatives:
+#        print('Transcript: {}'.format(alternative.transcript))
+#        print('Confidence: {}'.format(alternative.confidence))
