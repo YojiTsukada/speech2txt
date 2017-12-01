@@ -1,3 +1,4 @@
+import sys
 import io
 import os
 
@@ -6,14 +7,23 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 
+# check args file.
+args = sys.argv
+
+if len(sys.argv) <= 1 :
+    print('you need to set audio file.')
+    sys.exit()
+
+file_name = sys.argv[1]
+
 # Instantiates a client
 client = speech.SpeechClient()
 
 # The name of the audio file to transcribe
-file_name = os.path.join(
-    os.path.dirname("__file__"),
-    'data',
-    'english_mono.flac')
+#file_name = os.path.join(
+#    os.path.dirname("__file__"),
+#    'data',
+#    'english_mono.flac')
 
 # Loads the audio into memory
 with io.open(file_name, 'rb') as audio_file:
@@ -35,7 +45,7 @@ response = operation.result()
 
 cnt = 0
 for result in response.results:
-    print('Transcript: {}'.format(result.alternatives[0].transcript))
+    print('Transcript: {}'.format(result.alternatives[0].transcript)," ")
     print('Confidence: {}'.format(result.alternatives[0].confidence))
 
     for word_info in result.alternatives[0].words:
